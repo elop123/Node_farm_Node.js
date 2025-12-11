@@ -9,6 +9,7 @@
   "author": "Elena",
   "license": "ISC",
   "dependencies": {
+    "express": "^5.2.1",
     "global": "^4.4.0",
     "slugify": "^1.6.6"
   },
