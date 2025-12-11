@@ -1,12 +1,13 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
-const replaceTemplate = require('../final/modules/replaceTemplate.js')
+const slugify = require('slugify');
+const replaceTemplate = require('../starter/modules/replaceTemplates.js')
 
 /* const text = fs.readFileSync('./txt/input.txt', 'utf-8')
 console.log(text)
 
-const textOut = `This is wat we know abut avocado ${text} created on: ${Date.now()} `
+const textOut = `This is what we know abut avocado ${text} created on: ${Date.now()} `
 
 fs.writeFileSync('./txt/output.txt', textOut)
 console.log('file written')
@@ -24,6 +25,8 @@ const tempProduct = fs.readFileSync('./templates/product.html', 'utf-8')
 const data = fs.readFileSync('./dev-data/data.json', 'utf-8')
 const dataObj = JSON.parse(data)
 
+const slugs = dataObj.map(el =>slugify(el.productName, {lower:true}))
+console.log(slugs)
 const server = http.createServer((req, res)=>{
     //console.log(req.url)
     const { query, pathname } = url.parse(req.url, true);
